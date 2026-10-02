@@ -1,27 +1,28 @@
-/* Datos de proyectos. Campos: name, org, period (opcional), desc, tech, youtube (solo el ID del video), image (opcional). */
+/* Datos de proyectos. Campos: name, org, period (opcional), desc, tech, youtube (solo el ID del video, opcional),
+   images (opcional): lista de {src, alt, w, h}. Si un proyecto no tiene video ni imágenes, no se muestra recuadro multimedia. */
 const PROJECTS = [
   { name:"MILIMARS — Plataforma Web Integral para University Rover Challenge 2027",
     org:"Universidad Militar Nueva Granada | Grupo de Trabajo TI — Proyecto internacional", period:"2025 – Presente",
     desc:"Desarrollador web frontend del equipo de robótica espacial MILIMARS, participante del University Rover Challenge 2027 (Utah, EE. UU.). Desarrollé el sitio institucional con visualización 3D interactiva del rover, un gemelo digital con telemetría en tiempo real conectado al rover físico y un módulo de detección de vida para la Science Mission. Integré visión por computadora y migré la infraestructura a NVIDIA Jetson.",
-    tech:["HTML","CSS","JavaScript","Three.js","WebGL","STLLoader","OrbitControls","NVIDIA Jetson","Git/GitHub","IoT","Sistemas en tiempo real"], youtube:"", image:"" },
+    tech:["HTML","CSS","JavaScript","Three.js","WebGL","STLLoader","OrbitControls","NVIDIA Jetson","Git/GitHub","IoT","Sistemas en tiempo real"], youtube:"", images:[{src:"assets/images/proyecto-milimars.jpg", alt:"Integrantes del equipo trabajando en el prototipo del rover de MILIMARS", w:1200, h:800}] },
   { name:"Manipulación Robótica Autónoma con Visión e Inteligencia Artificial (RCNN)",
     org:"Universidad Militar Nueva Granada | Proyecto de Inteligencia Artificial y Robótica",
     desc:"Entrené y diseñé una red neuronal convolucional basada en regiones (RCNN) que, a través de una cámara, reconoce un tipo de objeto con el que fue preentrenada. Con esa detección, la IA mueve de forma automática las junturas de un robot MTB simulado en CoppeliaSim: recoge el objeto y lo suelta en el área de descarga.",
-    tech:["Python","RCNN","Visión por computadora","CoppeliaSim","TensorFlow"], youtube:"", image:"" },
+    tech:["Python","RCNN","Visión por computadora","CoppeliaSim","TensorFlow"], youtube:"", images:[] },
   { name:"Sistema de Embotellado con PLC Siemens S7-1500",
     org:"Universidad Militar Nueva Granada | Proyecto de Automatización Industrial",
     desc:"Diseñé el control de velocidad de un motor eléctrico en un PLC S7-1500 con dos estrategias que comparé entre sí: retroalimentación de estados con observador y PID con el módulo del PLC. Modelé el motor en espacio de estados y validé el modelo con pruebas experimentales. Integré en la secuencia del proceso un variador de frecuencia y un servomotor Siemens. Diseñé la PCB de la planta analógica y desarrollé supervisión HMI/WinCC, alarmas físicas, almacenamiento de datos en base de datos local y control remoto desde una aplicación web.",
-    tech:["TIA Portal","PLC Siemens S7-1500","Módulo PID","Variador de frecuencia","Servomotor","WinCC/HMI","Diseño de PCB","Base de datos local","Aplicación web","Espacio de estados","Observadores"], youtube:"", image:"" },
+    tech:["TIA Portal","PLC Siemens S7-1500","Módulo PID","Variador de frecuencia","Servomotor","WinCC/HMI","Diseño de PCB","Base de datos local","Aplicación web","Espacio de estados","Observadores"], youtube:"", images:[{src:"assets/images/proyecto-embotellado-plc.jpg", alt:"Tablero de entrenamiento con PLC Siemens S7-1500, variador de frecuencia, servomotor y panel HMI conectados con cables", w:1200, h:677}] },
   { name:"Robot SCARA de 3 Grados de Libertad para Manejo y Corte de ICOPOR",
     org:"Universidad Militar Nueva Granada | Proyecto de Robótica",
     desc:"Calculé, diseñé e implementé físicamente un robot SCARA de 3 juntas, con toda la programación y el control en una ESP32 con Arduino. Modelé su cinemática directa e inversa con la convención de Denavit-Hartenberg y calculé el Jacobiano geométrico. También apliqué planeación de trayectorias y control cinemático, y simulé el modelo completo en CoppeliaSim.",
-    tech:["ESP32","C++ (Arduino)","CoppeliaSim","Matrices de transformación","Ángulos de Euler","Cuaternios","Denavit-Hartenberg","Cinemática directa/inversa","Jacobiano","Planeación de trayectorias"], youtube:"", image:"" },
+    tech:["ESP32","C++ (Arduino)","CoppeliaSim","Matrices de transformación","Ángulos de Euler","Cuaternios","Denavit-Hartenberg","Cinemática directa/inversa","Jacobiano","Planeación de trayectorias"], youtube:"", images:[{src:"assets/images/proyecto-scara-1.jpg", alt:"Brazo robótico en pruebas, conectado a una tarjeta electrónica y a un computador portátil con el código de control", w:1200, h:683}, {src:"assets/images/proyecto-scara-2.jpg", alt:"Brazo robótico en movimiento mientras el computador portátil muestra gráficas de control en tiempo real", w:1200, h:680}] },
   { name:"Turbina Eólica Híbrida Savonius–Darrieus (120 V AC / 60 Hz)",
     org:"Universidad Militar Nueva Granada | Proyecto de Diseño, participante del área de electrónica",
     desc:"Diseñé el sistema electrónico de conversión, almacenamiento y distribución de energía de una turbina eólica vertical híbrida (Savonius + Darrieus). Analicé el recurso eólico de Bogotá con datos históricos y calculé la potencia con el área barrida de cada rotor. Diseñé la rectificación trifásica, el controlador MPPT, un freno dinámico con resistencias, los circuitos de protección de batería de litio (estado de carga, sobrecorriente y picos de voltaje) y el inversor de onda senoidal pura. Incluí monitoreo con sensores y revisé los requisitos de protección de la norma RETIE.",
-    tech:["Rectificador trifásico","MPPT","Inversor DC-AC","ESP32","Protecciones eléctricas y térmicas"], youtube:"", image:"" },
+    tech:["Rectificador trifásico","MPPT","Inversor DC-AC","ESP32","Protecciones eléctricas y térmicas"], youtube:"", images:[] },
   { name:"Sistema Embebido de Telemetría Inalámbrica con Gemelo Digital en Unity",
     org:"Universidad Militar Nueva Granada | Proyecto de Realidad Virtual",
     desc:"Diseñé e implementé un sistema embebido en ESP32 que adquiere un joystick analógico y un sensor MPU6050 (acelerómetro y giroscopio, I2C). Transmite los datos por Bluetooth Classic (SPP) con un protocolo binario a una aplicación en Unity (C#) con buffer dinámico y decodificación física, que controla en tiempo real un robot móvil y un brazo manipulador en simulación 3D.",
-    tech:["ESP32","C++ (Arduino Framework)","Unity Engine","Bluetooth SPP","Comunicación serial (COM virtual)"], youtube:"", image:"" }
+    tech:["ESP32","C++ (Arduino Framework)","Unity Engine","Bluetooth SPP","Comunicación serial (COM virtual)"], youtube:"", images:[] }
 ];
