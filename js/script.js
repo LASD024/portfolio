@@ -1,6 +1,5 @@
 (function(){
   "use strict";
-  const PH = t => `<span class="placeholder">[${t}]</span>`;
   const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
   // Proyectos
@@ -11,24 +10,16 @@
     if(p.image) return `<div class="media"><img src="${esc(p.image)}" alt="Imagen del proyecto ${esc(p.name)}" loading="lazy" width="640" height="360"></div>`;
     return `<div class="media"><div class="media-empty">[VIDEO DE YOUTUBE O IMAGEN DEL PROYECTO]</div></div>`;
   }
-  function link(url,label,cls,ph){
-    return url ? `<a class="btn ${cls}" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${label}</a>`
-               : `<span class="btn btn-disabled" aria-disabled="true">${label} ${ph}</span>`;
-  }
   function render(p,i){
-    const badge = p.status ? `<span class="badge">${esc(p.status)}</span>` : "";
+    const period = p.period ? `<p class="meta">${esc(p.period)}</p>` : "";
     return `<article class="project reveal" aria-labelledby="p${i}">
       <div>
-        <h3 id="p${i}">${esc(p.name)}</h3>${badge}
+        <h3 id="p${i}">${esc(p.name)}</h3>
+        <p class="sub">${esc(p.org)}</p>${period}
         <h4>Descripción</h4><p>${esc(p.desc)}</p>
-        <h4>Problema o propósito</h4><p>${p.purpose ? esc(p.purpose) : PH("PROBLEMA O PROPÓSITO")}</p>
-        <h4>Solución y aportes</h4><ul>${p.solution.map(s=>`<li>${esc(s)}</li>`).join("")}</ul>
-        <h4>Resultados</h4><p>${p.results ? esc(p.results) : PH("RESULTADOS")}</p>
         <h4>Tecnologías</h4><ul class="tag-list">${p.tech.map(t=>`<li class="tag">${esc(t)}</li>`).join("")}</ul>
       </div>
-      <div class="project-side">${media(p)}
-        <div class="project-links">${link(p.github,"GitHub","btn-secondary","[URL DE GITHUB]")}${p.extra?link(p.extra,"Enlace adicional","btn-secondary",""):""}</div>
-      </div></article>`;
+      <div class="project-side">${media(p)}</div></article>`;
   }
   const list = document.getElementById("projects-list");
   if(list && typeof PROJECTS !== "undefined"){
@@ -44,6 +35,25 @@
       b.replaceWith(f); f.focus();
     });
   }
+
+  // Modo oscuro (se guarda la elección; por defecto sigue el sistema)
+  const root = document.documentElement, tbtn = document.getElementById("theme-toggle");
+  const metaTheme = document.querySelector('meta[name="theme-color"]');
+  function paintTheme(){
+    const dark = root.getAttribute("data-theme") === "dark";
+    tbtn.setAttribute("aria-pressed", dark);
+    tbtn.setAttribute("aria-label", dark ? "Activar modo claro" : "Activar modo oscuro");
+    tbtn.querySelector(".theme-icon").textContent = dark ? "☀" : "☾";
+    tbtn.querySelector(".theme-label").textContent = dark ? "Modo claro" : "Modo oscuro";
+    if(metaTheme) metaTheme.content = dark ? "#08111F" : "#0F2D5B";
+  }
+  tbtn.addEventListener("click", ()=>{
+    const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try{ localStorage.setItem("theme", next); }catch(e){}
+    paintTheme();
+  });
+  paintTheme();
 
   // Menú móvil
   const toggle = document.querySelector(".nav-toggle"), nav = document.getElementById("menu");

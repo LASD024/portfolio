@@ -12,10 +12,9 @@ assets/images|icons|docs
 ```
 
 ## Completar contenido
-- `index.html`: reemplaza `[URL DE LINKEDIN]` y `[URL DE GITHUB]`; ajusta `og:image` a una URL absoluta.
-- `js/projects.js`: por proyecto, completa `youtube` (solo el ID, p. ej. `dQw4w9WgXcQ`), `github`, `extra`, `image`, `purpose` y `results`.
-- Fechas de experiencia: `[FECHA]`.
+- `js/projects.js`: por proyecto, completa `youtube` (solo el ID, p. ej. `dQw4w9WgXcQ`) e `image` (opcional).
 - Imágenes de proyectos: guárdalas en `assets/images/` (optimizadas, .webp/.jpg).
+- `index.html`: ajusta `og:image` a una URL absoluta al publicar.
 
 ## Publicar en GitHub Pages
 1. Sube la carpeta a un repositorio (p. ej. `usuario.github.io`).
