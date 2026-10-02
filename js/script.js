@@ -4,22 +4,26 @@
 
   // Proyectos
   function media(p){
+    let html = "";
     if(p.youtube){
-      return `<div class="media"><button class="video-btn" type="button" data-id="${esc(p.youtube)}" data-title="${esc(p.name)}" aria-label="Reproducir video: ${esc(p.name)}">▶ Reproducir video del proyecto</button></div>`;
+      html += `<div class="media"><button class="video-btn" type="button" data-id="${esc(p.youtube)}" data-title="${esc(p.name)}" aria-label="Reproducir video: ${esc(p.name)}">▶ Reproducir video del proyecto</button></div>`;
     }
-    if(p.image) return `<div class="media"><img src="${esc(p.image)}" alt="Imagen del proyecto ${esc(p.name)}" loading="lazy" width="640" height="360"></div>`;
-    return `<div class="media"><div class="media-empty">[VIDEO DE YOUTUBE O IMAGEN DEL PROYECTO]</div></div>`;
+    (p.images || []).forEach(im=>{
+      html += `<figure class="project-figure"><img src="${esc(im.src)}" alt="${esc(im.alt)}" width="${im.w}" height="${im.h}" loading="lazy" decoding="async"></figure>`;
+    });
+    return html;
   }
   function render(p,i){
     const period = p.period ? `<p class="meta">${esc(p.period)}</p>` : "";
-    return `<article class="project reveal" aria-labelledby="p${i}">
+    const side = media(p);
+    return `<article class="project reveal${side ? "" : " project--solo"}" aria-labelledby="p${i}">
       <div>
         <h3 id="p${i}">${esc(p.name)}</h3>
         <p class="sub">${esc(p.org)}</p>${period}
         <h4>Descripción</h4><p>${esc(p.desc)}</p>
         <h4>Tecnologías</h4><ul class="tag-list">${p.tech.map(t=>`<li class="tag">${esc(t)}</li>`).join("")}</ul>
       </div>
-      <div class="project-side">${media(p)}</div></article>`;
+      ${side ? `<div class="project-side">${side}</div>` : ""}</article>`;
   }
   const list = document.getElementById("projects-list");
   if(list && typeof PROJECTS !== "undefined"){
