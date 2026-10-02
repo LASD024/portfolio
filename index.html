@@ -12,6 +12,12 @@
   <meta property="og:description" content="Portafolio profesional: proyectos de automatización, control, IA y software con videos y repositorios.">
   <meta property="og:locale" content="es_CO">
   <meta property="og:image" content="assets/images/perfil.jpg"> <!-- [URL ABSOLUTA] al publicar en GitHub Pages -->
+  <script>
+    /* Aplica el tema guardado (o el del sistema) antes de pintar, para evitar parpadeo */
+    (function(){var t=null;try{t=localStorage.getItem("theme")}catch(e){}
+    if(!t)t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";
+    document.documentElement.setAttribute("data-theme",t);})();
+  </script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -20,11 +26,10 @@
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="#inicio">Luis A. Silva Díaz</a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menú</button>
     <nav class="nav" id="menu" aria-label="Principal">
       <ul class="nav-list">
         <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#perfil">Perfil</a></li>
         <li><a href="#habilidades">Habilidades</a></li>
         <li><a href="#proyectos">Proyectos</a></li>
         <li><a href="#formacion">Formación</a></li>
@@ -32,6 +37,12 @@
         <li><a href="#contacto">Contacto</a></li>
       </ul>
     </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="Activar modo oscuro">
+        <span class="theme-icon" aria-hidden="true">☾</span><span class="theme-label">Modo oscuro</span>
+      </button>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menú</button>
+    </div>
   </div>
 </header>
 
@@ -40,7 +51,7 @@
     <div class="container">
       <div class="hero-card">
         <div class="hero-body">
-          <img class="hero-photo" src="assets/images/perfil.jpg" width="531" height="519" alt="Retrato de Luis Alejandro Silva Díaz, estudiante de Ingeniería Mecatrónica">
+          <img class="hero-photo" src="assets/images/perfil.jpg" alt="Retrato de Luis Alejandro Silva Díaz, estudiante de Ingeniería Mecatrónica">
           <div>
             <p class="eyebrow">Portafolio profesional</p>
             <h1 id="titulo-hero">Luis Alejandro Silva Díaz</h1>
@@ -59,9 +70,7 @@
           </div>
         </div>
         <div class="hero-links">
-          <a href="[URL DE LINKEDIN]" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="[URL DE GITHUB]" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="mailto:lasdlucho2000@gmail.com">Correo</a>
+          <a href="mailto:est.luis.silva@unimilitar.edu.co">est.luis.silva@unimilitar.edu.co</a>
         </div>
       </div>
       <div class="areas">
@@ -75,22 +84,23 @@
     </div>
   </section>
 
-  <section id="sobre-mi" aria-labelledby="t-sobre">
+  <section id="perfil" aria-labelledby="t-perfil">
     <div class="container about-grid reveal">
       <div>
-        <h2 id="t-sobre">Sobre mí</h2>
-        <p>Estudiante de Ingeniería Mecatrónica en proceso de graduación, con experiencia en proyectos de automatización, inteligencia artificial, electrónica, análisis de datos y desarrollo de software.</p>
-        <p>Me enfoco en transformar requerimientos técnicos en soluciones funcionales integrando varias disciplinas de ingeniería: control, potencia, datos, IA y plataformas embebidas. Me adapto con rapidez a nuevas tecnologías y aporto en equipos multidisciplinarios.</p>
-        <p>Actualmente desarrollo mi trabajo de grado sobre estimación y corrección predictiva de trayectorias de satélites en órbita baja (LEO) con inteligencia artificial.</p>
+        <h2 id="t-perfil">Perfil Profesional</h2>
+        <p><strong>Estudiante de Ingeniería Mecatrónica en proceso de graduación</strong>, con experiencia en proyectos de automatización, inteligencia artificial, electrónica, análisis de datos y desarrollo de software.</p>
+        <p>Orientado al <strong>diseño e implementación de soluciones tecnológicas</strong> que integran hardware, software, control, electrónica, análisis de datos e inteligencia artificial para optimizar procesos y resolver desafíos industriales y empresariales. He desarrollado proyectos utilizando <strong>Python, TensorFlow, PyTorch, MATLAB, PLC Siemens, Ansys, bases de datos SQL/NoSQL, visión por computadora y desarrollo Full Stack</strong>, aplicando estas tecnologías en sistemas de control, soluciones de inteligencia artificial y plataformas embebidas.</p>
+        <p>Me destaco por <strong>transformar requerimientos técnicos en soluciones funcionales</strong>, integrando diferentes disciplinas de ingeniería y adaptándome rápidamente a nuevas tecnologías. Además, cuento con experiencia trabajando en proyectos que requieren la combinación de conocimientos de software, hardware, automatización, datos e inteligencia artificial.</p>
+        <p>Busco iniciar mi carrera profesional y aportar como <strong>practicante en ingeniería, automatización, inteligencia artificial, ciencia de datos, desarrollo de software, transformación digital o procesos industriales</strong>.</p>
       </div>
       <div>
         <h3>Competencias principales</h3>
         <ul class="check-list">
-          <li>Diseño e implementación de sistemas de control</li>
-          <li>Integración hardware–software</li>
-          <li>Modelos de IA y visión por computadora</li>
-          <li>Automatización industrial con PLC</li>
-          <li>Trabajo en equipo multidisciplinario</li>
+          <li><strong>Inteligencia artificial y Machine Learning:</strong> redes neuronales (MLP, CNN, RCNN, LSTM), visión por computadora y despliegue en NVIDIA Jetson y Edge Impulse.</li>
+          <li><strong>Automatización e industria:</strong> PLC en TIA Portal, control PID y por retroalimentación de estados con observador, supervisión HMI/SCADA con WinCC.</li>
+          <li><strong>Programación, datos y desarrollo web:</strong> Python, C, C++, Java y JavaScript; bases de datos; Three.js/WebGL.</li>
+          <li><strong>Diseño y robótica:</strong> SolidWorks y ANSYS, cinemática y planeación de trayectorias, simulación en CoppeliaSim y ROS.</li>
+          <li><strong>Electrónica y energía:</strong> electrónica de potencia, instrumentación y sensórica, microcontroladores y plataformas embebidas.</li>
         </ul>
       </div>
     </div>
@@ -101,13 +111,13 @@
       <h2 id="t-hab">Habilidades y herramientas</h2>
       <p class="section-lead">Organizadas por área. Son las herramientas que he usado en proyectos universitarios.</p>
       <div class="grid grid-3">
-        <article class="card skill-cat"><h3>Programación y web</h3><ul class="tag-list"><li class="tag">Python</li><li class="tag">Java</li><li class="tag">JavaScript</li><li class="tag">HTML</li><li class="tag">GitHub</li></ul></article>
-        <article class="card skill-cat"><h3>Inteligencia artificial</h3><ul class="tag-list"><li class="tag">TensorFlow</li><li class="tag">PyTorch</li><li class="tag">Edge Impulse</li><li class="tag">Visión por computadora</li></ul></article>
-        <article class="card skill-cat"><h3>Datos y bases de datos</h3><ul class="tag-list"><li class="tag">Excel</li><li class="tag">MySQL</li><li class="tag">MongoDB</li><li class="tag">Firebase</li></ul></article>
-        <article class="card skill-cat"><h3>Control y simulación</h3><ul class="tag-list"><li class="tag">MATLAB / Simulink</li><li class="tag">CoppeliaSim</li><li class="tag">Unity</li></ul></article>
-        <article class="card skill-cat"><h3>Automatización</h3><ul class="tag-list"><li class="tag">PLC Siemens S7-1500</li><li class="tag">TIA Portal / V-assistant</li></ul></article>
+        <article class="card skill-cat"><h3>Programación y desarrollo web</h3><ul class="tag-list"><li class="tag">Python</li><li class="tag">Java</li><li class="tag">C</li><li class="tag">C++</li><li class="tag">C#</li><li class="tag">HTML</li><li class="tag">CSS</li><li class="tag">JavaScript</li><li class="tag">Three.js / WebGL</li><li class="tag">Git / GitHub</li></ul></article>
+        <article class="card skill-cat"><h3>Inteligencia artificial y Machine Learning</h3><ul class="tag-list"><li class="tag">TensorFlow</li><li class="tag">PyTorch</li><li class="tag">Edge Impulse</li><li class="tag">MediaPipe</li><li class="tag">CNN / RCNN / LSTM</li><li class="tag">Visión por computadora</li></ul></article>
+        <article class="card skill-cat"><h3>Datos y bases de datos</h3><ul class="tag-list"><li class="tag">Excel</li><li class="tag">SQL / NoSQL</li><li class="tag">MySQL (XAMPP)</li><li class="tag">Firebase</li><li class="tag">MongoDB</li></ul></article>
+        <article class="card skill-cat"><h3>Control y simulación</h3><ul class="tag-list"><li class="tag">MATLAB / Simulink</li><li class="tag">CoppeliaSim</li><li class="tag">Unity</li><li class="tag">ROS</li><li class="tag">Proteus</li><li class="tag">LTspice</li><li class="tag">FluidSIM</li></ul></article>
+        <article class="card skill-cat"><h3>Automatización industrial</h3><ul class="tag-list"><li class="tag">PLC Siemens S7-1500</li><li class="tag">TIA Portal / V-assistant</li><li class="tag">WinCC (HMI/SCADA)</li><li class="tag">Profibus / Profinet / Modbus</li></ul></article>
         <article class="card skill-cat"><h3>Electrónica y hardware</h3><ul class="tag-list"><li class="tag">Arduino</li><li class="tag">ESP32</li><li class="tag">STM32</li><li class="tag">Raspberry Pi</li><li class="tag">NVIDIA Jetson Nano</li></ul></article>
-        <article class="card skill-cat"><h3>Diseño y análisis de ingeniería</h3><ul class="tag-list"><li class="tag">SolidWorks</li><li class="tag">Ansys</li></ul></article>
+        <article class="card skill-cat"><h3>Diseño y análisis de ingeniería</h3><ul class="tag-list"><li class="tag">SolidWorks</li><li class="tag">Ansys (FEA/CFD)</li><li class="tag">Programación CNC</li></ul></article>
         <article class="card skill-cat"><h3>Idiomas</h3><ul class="tag-list"><li class="tag">Español (nativo)</li><li class="tag">Inglés C1</li></ul></article>
       </div>
     </div>
@@ -116,7 +126,7 @@
   <section id="proyectos" aria-labelledby="t-proy">
     <div class="container">
       <h2 id="t-proy">Proyectos</h2>
-      <p class="section-lead">Qué construí, cómo lo construí y dónde puedes comprobarlo: video y repositorio en cada proyecto.</p>
+      <p class="section-lead">Proyectos universitarios: qué construí, cómo lo construí y con qué tecnologías.</p>
       <div id="projects-list"><noscript><p>Activa JavaScript para ver los proyectos.</p></noscript></div>
     </div>
   </section>
@@ -139,11 +149,11 @@
   <section id="experiencia" aria-labelledby="t-exp">
     <div class="container">
       <h2 id="t-exp">Experiencia</h2>
-      <p class="section-lead">Experiencia académica y de investigación. Aún no registro experiencia laboral formal; busco mi práctica profesional.</p>
-      <ul class="timeline">
-        <li><h3>Grupo de investigación — URC University Rover Challenge 2027</h3><p class="sub">Universidad Militar Nueva Granada · Presencial</p><p class="meta">[FECHA]</p>
-          <ul><li>Desarrollo web Full-Stack para la interfaz de control del rover.</li><li>Gemelo digital con telemetría en tiempo real.</li><li>Migración de modelos de visión por computadora a NVIDIA Jetson.</li></ul></li>
-      </ul>
+      <ol class="timeline timeline-num">
+        <li><h3>Experiencia laboral</h3><p class="sub">No cuento con experiencia laboral.</p></li>
+        <li><h3>MILIMARS — Plataforma Web Integral para University Rover Challenge 2027</h3><p class="sub">Universidad Militar Nueva Granada | Grupo de Trabajo TI — Proyecto internacional</p><p class="meta">2025 – Presente</p>
+          <ul><li>Desarrollador web frontend del equipo de robótica espacial MILIMARS, participante del University Rover Challenge 2027 (Utah, EE. UU.).</li><li>Sitio institucional con visualización 3D interactiva del rover.</li><li>Gemelo digital con telemetría en tiempo real conectado al rover físico.</li><li>Módulo de detección de vida para la Science Mission.</li><li>Integración de visión por computadora y migración de la infraestructura a NVIDIA Jetson.</li></ul></li>
+      </ol>
     </div>
   </section>
 
@@ -152,12 +162,10 @@
       <h2 id="t-cont">Contacto</h2>
       <p class="section-lead">¿Tienes una oportunidad de práctica o un proyecto en mente? Escríbeme.</p>
       <ul class="contact-list">
-        <li><strong>Correo</strong> <a href="mailto:lasdlucho2000@gmail.com">lasdlucho2000@gmail.com</a></li>
+        <li><strong>Correo</strong> <a href="mailto:est.luis.silva@unimilitar.edu.co">est.luis.silva@unimilitar.edu.co</a></li>
         <li><strong>Teléfono</strong> <a href="tel:+573016586464">+57 301 658 6464</a></li>
-        <li><strong>LinkedIn</strong> <a href="[URL DE LINKEDIN]" target="_blank" rel="noopener noreferrer">[URL DE LINKEDIN]</a></li>
-        <li><strong>GitHub</strong> <a href="[URL DE GITHUB]" target="_blank" rel="noopener noreferrer">[URL DE GITHUB]</a></li>
       </ul>
-      <a class="btn btn-primary" href="mailto:lasdlucho2000@gmail.com">Enviar correo</a>
+      <a class="btn btn-primary" href="mailto:est.luis.silva@unimilitar.edu.co">Enviar correo</a>
     </div>
   </section>
 </main>
